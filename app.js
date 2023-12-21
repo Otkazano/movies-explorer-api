@@ -2,6 +2,7 @@ import express, { json } from 'express';
 import mongoose from 'mongoose';
 import helmet from 'helmet';
 import { rateLimit } from 'express-rate-limit';
+import router from './routes/index.js';
 
 const { PORT = 3000, DB_URL = 'mongodb://localhost:27017/bitfilmsdb' } = process.env;
 const app = express();
@@ -26,7 +27,7 @@ async function startApp() {
       .catch((err) => {
         console.log('Error with connection to database', err);
       });
-    // app.use(router)
+    app.use(router);
     app.listen(PORT, () => {
       console.log('Server is working on port', PORT);
     });

@@ -15,6 +15,7 @@ const userScheme = new mongoose.Schema(
     password: {
       type: String,
       required: [true, "поле 'password' не может быть пустым"],
+      minlength: 2,
       select: false,
     },
     name: {
@@ -24,7 +25,7 @@ const userScheme = new mongoose.Schema(
       maxlength: 30,
     },
   },
-  { versionKey: false },
+  { versionKey: false, timestamps: true },
 );
 
 export default mongoose.model('user', userScheme);

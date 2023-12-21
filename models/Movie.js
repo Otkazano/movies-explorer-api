@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import validator from 'validator';
 
-const movieScheme = new mongoose.SchemaType(
+const movieScheme = new mongoose.Schema(
   {
     country: {
       type: String,
@@ -65,7 +65,7 @@ const movieScheme = new mongoose.SchemaType(
       required: [true, "поле 'nameEN' не может быть пустым"],
     },
   },
-  { versionKey: false },
+  { versionKey: false, timestamps: true },
 );
 
 export default mongoose.model('movie', movieScheme);
