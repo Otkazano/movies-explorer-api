@@ -33,10 +33,12 @@ export const createUser = async (req, res, next) => {
     const newUser = await bcrypt
       .hash(req.body.password, SALT_ROUNDS)
       .then((hash) => User.create({ ...req.body, password: hash }));
+    const token = generateToken({ _id: newUser._id });
     return res.status(StatusCodes.CREATED).send({
       email: newUser.email,
       name: newUser.name,
       _id: newUser._id,
+      token,
     });
   } catch (err) {
     if (err instanceof mongoose.Error.ValidationError) {
