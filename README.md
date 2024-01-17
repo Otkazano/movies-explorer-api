@@ -2,7 +2,7 @@
 Бэкенд дипломного проекта 
 
 ## Ссылки на проект
-Адрес репозитория: [https://github.com/Otkazano/react-mesto-api-full-gha](https://github.com/Otkazano/movies-explorer-api)
+Адрес репозитория: https://github.com/Otkazano/movies-explorer-api
 
 https://api.movies.media.nomoredomainsmonster.ru/
 
